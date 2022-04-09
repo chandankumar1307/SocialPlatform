@@ -11,6 +11,16 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use("/posts", postRoutes);
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 const CONNECTION_URL =
   "mongodb+srv://chandan1234:chandan1234@socialplatform.lsvhb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 

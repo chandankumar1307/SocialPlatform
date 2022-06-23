@@ -11,11 +11,11 @@ const Navbar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const classes = useStyles();
-  // const user = null;
+
   const userData = JSON.parse(localStorage.getItem('profile'))
   console.log(userData);
   const [user, setUser] = useState(userData)
-  // const [user, setUser] = useState(null)
+
   console.log(user);
   const logout = () => {
     dispatch({ type: 'LOGOUT' })
@@ -26,15 +26,9 @@ const Navbar = () => {
 
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location])
-  // useEffect(()=>{
-  //  const data=JSON.parse(localStorage.getItem('profile')) 
-  // })
 
-  // useEffect(() => {
-  //   setUser(JSON.parse(localStorage.getItem('profile')))
-  //   // if (!user) setUser(null);
-  //   const token = user?.token;
-  // }, [])
+
+
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
